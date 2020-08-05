@@ -1,0 +1,74 @@
+<div class="row">
+	<div class="col">
+		<form #inputForm="ngForm">
+			<h1>Inputs</h1>
+			<div class="form-group">
+				<label>Number</label>
+				<input type="number" name="number" #number="ngModel" [(ngModel)]="input.number" required/>
+				<div class="error" *ngIf="number.invalid && (number.dirty || number.touched)">
+					Field is required.
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Text</label>
+				<input type="text" name="text" #text="ngModel" [(ngModel)]="input.text" minlength="3" required/>
+				<div  class="error" *ngIf="text.invalid && (text.dirty || text.touched)">
+					<div *ngIf="text.errors.minlength">
+						Field is too short.
+					</div>
+					<div *ngIf="text.errors.required">
+						Field is required.
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Date</label>
+				<input type="date" name="date" [(ngModel)]="input.date" />
+			</div>
+			<div class="form-group">
+				<button type="submit" (click)="submit()" [disabled]="inputForm.invalid">Submit</button>
+			</div>
+		</form>
+	</div>
+	<div class="col">
+		<form>
+			<h1>Outputs</h1>
+			<div class="form-group">
+				<label>Number</label>
+				<input type="number" name="number" [(ngModel)]="output.number" readonly/>
+			</div>
+			<div class="form-group">
+				<label>Text</label>
+				<input type="text" name="text" [(ngModel)]="output.text" readonly/>
+			</div>
+			<div class="form-group">
+				<label>Date</label>
+				<input type="date" name="date" [(ngModel)]="output.date" readonly/>
+			</div>
+		</form>
+	</div>
+</div>
+
+<hr>
+<h2>Instructions</h2>
+<h3>General</h3>
+<ul>
+	<li>Clicking the submit button should update the "Outputs" values with the corresponding "Inputs" values.</li>
+	<li>Do not allow submission if form is invalid.</li>
+</ul>
+<h3>Number</h3>
+<ul>
+	<li>Don't initially show the required field error.</li>
+</ul>
+<h3>Text</h3>
+<ul>
+	<li>Add validation for the field to be required.</li>
+</ul>
+<h3>Date</h3>
+<ul>
+	<li>Default to today's date.</li>
+</ul>
+<h3>Additional</h3>
+<ul>
+	<li>What are some additional updates and improvements you would make.</li>
+</ul>
