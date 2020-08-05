@@ -5,19 +5,16 @@
 			<div class="form-group">
 				<label>Number</label>
 				<input type="number" name="number" #number="ngModel" [(ngModel)]="input.number" required/>
-				<div class="error" *ngIf="number.invalid && (number.dirty || number.touched)">
+				<div class="error" *ngIf="number.invalid">
 					Field is required.
 				</div>
 			</div>
 			<div class="form-group">
 				<label>Text</label>
-				<input type="text" name="text" #text="ngModel" [(ngModel)]="input.text" minlength="3" required/>
+				<input type="text" name="text" #text="ngModel" [(ngModel)]="input.text" minlength="3"/>
 				<div  class="error" *ngIf="text.invalid && (text.dirty || text.touched)">
 					<div *ngIf="text.errors.minlength">
 						Field is too short.
-					</div>
-					<div *ngIf="text.errors.required">
-						Field is required.
 					</div>
 				</div>
 			</div>
@@ -26,7 +23,7 @@
 				<input type="date" name="date" [(ngModel)]="input.date" />
 			</div>
 			<div class="form-group">
-				<button type="submit" (click)="submit()" [disabled]="inputForm.invalid">Submit</button>
+				<button type="submit">Submit</button>
 			</div>
 		</form>
 	</div>

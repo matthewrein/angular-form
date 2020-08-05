@@ -6,10 +6,6 @@ import { Component } from '@angular/core';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-	public input: any = {date: '2020-08-04'};
+	public input: any = {};
 	public output: any = {};
-
-	submit(): void {
-		this.output = Object.assign({}, this.input);
-	}
 }
